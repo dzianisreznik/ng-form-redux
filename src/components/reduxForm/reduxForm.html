@@ -1,0 +1,18 @@
+<form name="reduxForm" ng-submit="reduxForm.$valid && formCtrl.submit()" novalidate>
+
+    <input type="text" name="name" ng-model="name" required="required" ng-minlength="2"
+           ng-blur="reduxForm.name.$valid && formCtrl.updateName(name)">
+    <br>
+    <ng-messages for="reduxForm.name.$error" ng-if="reduxForm.name.$dirty || reduxForm.$submitted">
+        <ng-message when="required">Enter the name, please</ng-message>
+        <ng-message when="minlength">Too short name</ng-message>
+    </ng-messages>
+    <br>
+
+    <label for="agree">Do you agree?</label>
+    <br>
+    <input type="checkbox" id="agree" name="agree" ng-model="agree" ng-change="formCtrl.updateAgree(agree)">
+    <br>
+
+    <button type="submit">Submit form</button>
+</form>
